@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Footer, Header } from './components/common';
+import { MainLayout } from './components/Layout';
+import { Widget } from './components/common';
+import { MyText } from './features/labs/Mytext';
 import { StudentCar } from './features/labs/Student';
 import { Student } from './models';
-import { MyText } from './features/labs/Mytext';
-import { MainLayout } from './components/Layout';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -42,6 +42,26 @@ function App() {
         <span>Type</span>
         <span>Script</span>
       </MyText>
+
+      <div>
+        <div>
+          <Widget title="Earning Overview">Chart1</Widget>
+        </div>
+
+        <div>
+          <Widget title="Revenue Sources">Chart2</Widget>
+        </div>
+
+        <div>
+          <Widget title="Earning Overview">
+            <img src="abc" alt="" />
+          </Widget>
+        </div>
+
+        <div>
+          <Widget title="Earning Overview">Chart4</Widget>
+        </div>
+      </div>
     </>
   );
 }
