@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { MainLayout } from './components/Layout';
 import { Widget } from './components/common';
 import { MyText } from './features/labs/Mytext';
@@ -26,9 +26,32 @@ function App() {
   }
 
   // if (loading) return <p>loading...</p>;
+  //sever
+  const studentList = [
+    { id: 1, name: 'type' },
+    { id: 2, name: 'script' },
+  ];
+
+  //client
+  const statusList = ['pending', 'active'];
 
   return (
     <>
+      <ul>
+        {studentList.map((student) => (
+          //Trong tình huống nhiều thẻ li thì dùng fragment để bỏ key
+          <Fragment key={student.id}>
+            <li>{student.name}</li>
+            <li>{student.name}</li>
+          </Fragment>
+        ))}
+      </ul>
+
+      <ul>
+        {statusList.map((status, index) => (
+          <li key={index}>{status}</li>
+        ))}
+      </ul>
       {loading && <p>loading...</p>}
       {loading ? <p>Loading...</p> : <p>data ready!</p>}
       {true && 'show true'}
